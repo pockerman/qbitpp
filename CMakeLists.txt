@@ -143,15 +143,8 @@ INCLUDE_DIRECTORIES(${NLOHMANN_JSON_INCL_DIR})
 LINK_DIRECTORIES(${BOOST_LIBRARYDIR})
 
 FILE(GLOB  SRCS  ${PROJECT_SRC_DIR}/base/*.cpp
-                 ${PROJECT_SRC_DIR}/parallel/threading/*.cpp
-                 ${PROJECT_SRC_DIR}/parallel/utilities/*.cpp
                  ${PROJECT_SRC_DIR}/utilities/*.cpp
-                 ${PROJECT_SRC_DIR}/maths/functions/*.cpp
-                 ${PROJECT_SRC_DIR}/maths/statistics/*.cpp
                  ${PROJECT_SRC_DIR}/maths/*.cpp
-                 #${PROJECT_SRC_DIR}/geometry/*.cpp
-                 ${PROJECT_SRC_DIR}/patterns/*.cpp
-                 #${PROJECT_SRC_DIR}/data_structs/*.cpp
                  )
 
 
