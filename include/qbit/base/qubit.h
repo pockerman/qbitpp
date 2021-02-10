@@ -18,6 +18,10 @@ public:
     ///
     Qubit(const State<2>& state);
 
+    ///
+    ///\brief Returns the qubit representation as vector
+    ///
+    DynVec<real_t> as_vector()const;
 private:
 
     ///
