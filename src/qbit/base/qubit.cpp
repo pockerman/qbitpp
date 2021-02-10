@@ -27,4 +27,16 @@ Qubit::normalize_(){
 }
 
 
+DynVec<real_t>
+Qubit::as_vector()const{
+
+    DynVec<real_t> state(state_.size(), 0.0);
+    for(auto i=0; i<state.size(); ++i){
+        state[i] = state_[i];
+    }
+    return state;
+
+}
+
+
 }
