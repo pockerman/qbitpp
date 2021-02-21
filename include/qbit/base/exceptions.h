@@ -3,23 +3,37 @@
 
 #include <stdexcept>
 
-namespace qbit
-{
+namespace qbit{
 
-/**
- * @brief The InvalidPartitionedObject class. Exception to be
- * thrown when an object does not have the right number of partitions
- */
-class InvalidPartitionedObject: public std::logic_error
+///
+/// \brief The DivisionWithZero class. Exception to be
+/// thrown when a division with zero is attempted
+///
+class DivisionWithZero: public std::logic_error
 {
 public:
 
-    explicit InvalidPartitionedObject(const std::string& what_arg)
+    explicit DivisionWithZero(const std::string& what_arg)
     :
     std::logic_error(what_arg)
     {}
 
-    explicit InvalidPartitionedObject(const char* what_arg)
+    explicit DivisionWithZero(const char* what_arg)
+    :
+    std::logic_error(what_arg)
+    {}
+};
+
+class InvalidStateSize: public std::logic_error
+{
+public:
+
+    explicit InvalidStateSize(const std::string& what_arg)
+    :
+    std::logic_error(what_arg)
+    {}
+
+    explicit InvalidStateSize(const char* what_arg)
     :
     std::logic_error(what_arg)
     {}
