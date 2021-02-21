@@ -3,6 +3,8 @@
 
 #include "qbit/base/types.h"
 
+#include <ostream>
+
 namespace qbit{
 
 ///
@@ -18,10 +20,15 @@ public:
     Qubit()=default;
 
     ///
+    /// \brief constructor
+    ///
+    Qubit(uint_t size);
+
+    ///
     /// \brief Qubit. Constructor initialize the qubit
     /// at the given state
     ///
-    Qubit(const State<2>& state);
+    Qubit(const DynVec<real_t>& state);
 
     ///
     ///\brief Returns the qubit representation as vector
@@ -31,14 +38,26 @@ public:
     ///
     /// \brief operator = Copy assignment operator
     ///
-    Qubit& operator=(const Qubit& other){return *this;}
+    Qubit& operator=(const Qubit& other);
+
+    ///
+    /// \brief print Helper functions to print the state of
+    /// the qubit
+    ///
+    std::ostream& print(std::ostream& out)const;
+
+    ///
+    /// \brief get_probability Returns the probability
+    /// that the qubit represents the given array of bits
+    ///
+    real_t get_probability(DynVec<uint_t> bits)const;
 
 private:
 
     ///
     /// \brief state_. The state of the qubit
     ///
-    State<2> state_;
+    DynVec<real_t> state_;
 
     ///
     /// \brief normalize_. Normalize the qubit
@@ -49,6 +68,11 @@ private:
 
 };
 
+
+inline
+std::ostream& operator<<(std::ostream& out, const Qubit& q){
+    return q.print(out);
+}
 
 }
 
