@@ -13,6 +13,11 @@ class Qubit
 public:
 
     ///
+    /// \brief Default constructor
+    ///
+    Qubit()=default;
+
+    ///
     /// \brief Qubit. Constructor initialize the qubit
     /// at the given state
     ///
@@ -22,6 +27,12 @@ public:
     ///\brief Returns the qubit representation as vector
     ///
     DynVec<real_t> as_vector()const;
+
+    ///
+    /// \brief operator = Copy assignment operator
+    ///
+    Qubit& operator=(const Qubit& other){return *this;}
+
 private:
 
     ///
