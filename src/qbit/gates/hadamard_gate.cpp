@@ -20,13 +20,21 @@ HadamardGate<std::array<Qubit, 1>>::operator()(const input_t& input)const {
     auto mat = HadamardGate<std::array<Qubit, 1>>::as_matrix();
     DynVec<real_t> tmp = mat*input.as_vector();
 
-    State<2> s;
+    DynVec<real_t> s(2, 0.0);
     s[0] = tmp[0];
     s[1] = tmp[1];
     out[0] =  s;
 
-    this->input_ = input;
+    input_ = input;
     return out;
+}
+
+Qubit
+HadamardGate<std::array<Qubit, 1>>::evaluate(const Qubit& input)const {
+
+    auto mat = HadamardGate<std::array<Qubit, 1>>::as_matrix();
+    DynVec<real_t> tmp = mat*input.as_vector();
+    return Qubit(tmp);
 }
 
 
@@ -37,12 +45,14 @@ HadamardGate<QMeasurement>::operator()(const input_t& input)const {
     auto mat = HadamardGate<std::array<Qubit, 1>>::as_matrix();
     DynVec<real_t> tmp = mat*input.as_vector();
 
-    State<2> s;
+    DynVec<real_t> s(2, 0.0);
     s[0] = tmp[0];
     s[1] = tmp[1];
     out[0] =  s;
     return QMeasurement();
 }
+
+
 
 
 } //qbit

@@ -74,7 +74,7 @@ protected:
 DynMat<real_t>
 hadamard_helper::as_matrix(){
 
-    static DynMat<real_t> mat(2, 2);
+    static DynMat<real_t> mat;
 
     if(mat.rows() == 0){
         mat.resize(2, 2);
@@ -125,9 +125,19 @@ public:
     ///
     output_t operator()(const input_t& input)const;
 
+    ///
+    /// \brief evaluate. Apply Hadamard gate on the qubit
+    ///
+    Qubit evaluate(const Qubit& input)const;
+
 private:
 
 };
+
+///
+/// \brief Shortcut name
+///
+using HadGate = HadamardGate<std::array<Qubit, 1>>;
 
 
 ///
