@@ -20,14 +20,7 @@ public:
 	///
 	/// \brief Returns a string describing the library version
 	///
-        static std::string version(){return std::string(QBIT_VERSION);}
-
-        ///
-        /// \brief Returns a state object of dim-dimension with
-        /// all entries zeroed
-        ///
-        template<int dim>
-        static State<dim> get_zero_state();
+    static std::string version(){return std::string(QBIT_VERSION);}
 
 	///
 	/// \brief Returns the value of the tolerance constant. 
@@ -50,10 +43,10 @@ public:
 	///
 	static std::string info_str(){return "INFO: ";}
 
-        ///
-        /// \brief warning_str Returns the WARNING string
-        ///
-        static std::string warning_str(){return "WARNING: ";}
+    ///
+    /// \brief warning_str Returns the WARNING string
+    ///
+    static std::string warning_str(){return "WARNING: ";}
 
 	///
 	/// \brief Dummy string
@@ -71,9 +64,9 @@ public:
 	static void initialize();
 	
 	///
-        /// \brief Constructor
-        ///
-        QbitConsts()=delete;
+    /// \brief Constructor
+    ///
+    QbitConsts()=delete;
 
 private:
 
@@ -82,21 +75,6 @@ private:
     ///
     static real_t tol_;
 };
-
-
-template<int dim>
-State<dim>
-QbitConsts::get_zero_state(){
-
-    State<dim> state;
-
-    for(auto i=0; i<dim; ++i){
-        state[i] = 0.0;
-    }
-
-    return state;
-}
-
 
 }
 #endif
