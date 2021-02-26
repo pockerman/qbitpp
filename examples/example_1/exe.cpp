@@ -10,7 +10,7 @@ namespace  {
 
     using qbit::uint_t;
     using qbit::real_t;
-    using qbit::HadGate;
+    using qbit::HGate;
     using qbit::Qubit;
     using qbit::DynVec;
 
@@ -27,10 +27,10 @@ int main(){
     Qubit q1(state);
     std::cout<<q1<<std::endl;
 
-    HadGate gate;
+    HGate gate(q1);
 
     // let's compute the transformation
-    auto q2 = gate.evaluate(q1);
-    std::cout<<q2<<std::endl;
+    auto q2 = gate();
+    std::cout<<q2[0]<<std::endl;
     return 0;
 }
