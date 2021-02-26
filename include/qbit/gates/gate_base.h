@@ -37,15 +37,9 @@ public:
     virtual ~GateBase(){}
 
     ///
-    /// \brief as_matrix. Get matrix representation
-    /// of the class
-    ///
-    virtual const DynMat<real_t>& as_matrix()const;
-
-    ///
     /// \brief operator () Apply the action of the gate to the input
     ///
-    virtual output_t operator()(const input_t& input)const=0;
+    virtual output_t operator()()const=0;
 
 protected:
 
@@ -55,9 +49,7 @@ protected:
     ///
     GateBase()=default;
 
-
 };
-
 
 }
 

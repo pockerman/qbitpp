@@ -4,6 +4,7 @@
 #include "qbit/base/types.h"
 #include "qbit/base/qubit.h"
 #include "qbit/gates/gate_type.h"
+#include "qbit/gates/gate_base.h"
 
 #include <array>
 
@@ -63,30 +64,19 @@ public:
     ///
     hadamard_helper()=default;
 
+    ///
+    /// \brief Default constructor
+    ///
+    hadamard_helper(const input_t& input);
+
 protected:
 
     ///
-    /// \brief input_ Store a copy of the input
+    /// \brief input_ The input the gate executes on
+    /// when operator() is called
     ///
-    mutable input_t input_;
+    input_t input_;
 };
-
-DynMat<real_t>
-hadamard_helper::as_matrix(){
-
-    static DynMat<real_t> mat;
-
-    if(mat.rows() == 0){
-        mat.resize(2, 2);
-
-        mat(0, 0) = 1.0/std::sqrt(2);
-        mat(0, 1) = 1.0/std::sqrt(2);
-        mat(1, 0) = 1.0/std::sqrt(2);
-        mat(1, 1) = -1.0/std::sqrt(2);
-    }
-
-    return mat;
-}
 
 }
 
@@ -96,7 +86,8 @@ hadamard_helper::as_matrix(){
 /// a Qubit.
 ///
 template<>
-class HadamardGate<std::array<Qubit, 1>> final: public hadamard_detail::hadamard_helper
+class HadamardGate<std::vector<Qubit>> final: public hadamard_detail::hadamard_helper,
+                                                public GateBase
 {
 public:
 
@@ -108,7 +99,7 @@ public:
     ///
     /// \brief output_t. The type of the output to the gate
     ///
-    typedef std::array<Qubit, 1> output_t;
+    typedef GateBase::output_t output_t;
 
     ///
     /// \brief type. The type of the gate
@@ -121,9 +112,14 @@ public:
     HadamardGate()=default;
 
     ///
+    /// \brief HadamardGate. Constructor
+    ///
+    HadamardGate(const input_t& input);
+
+    ///
     /// \brief operator () Apply the action of the gate to the input
     ///
-    output_t operator()(const input_t& input)const;
+    output_t operator()()const override final;
 
     ///
     /// \brief evaluate. Apply Hadamard gate on the qubit
@@ -137,7 +133,7 @@ private:
 ///
 /// \brief Shortcut name
 ///
-using HadGate = HadamardGate<std::array<Qubit, 1>>;
+using HGate = HadamardGate<std::vector<Qubit>>;
 
 
 ///
