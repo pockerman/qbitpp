@@ -150,6 +150,7 @@ FILE(GLOB  SRCS  ${PROJECT_SRC_DIR}/base/*.cpp
                  ${PROJECT_SRC_DIR}/utilities/*.cpp
                  ${PROJECT_SRC_DIR}/maths/*.cpp
                  ${PROJECT_SRC_DIR}/gates/*.cpp
+                 ${PROJECT_SRC_DIR}/circuits/*.cpp
                  )
 
 
