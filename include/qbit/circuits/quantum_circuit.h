@@ -26,6 +26,11 @@ class QCircuit
 public:
 
     ///
+    /// \brief output_t. The type of the output of the circuit
+    ///
+    typedef std::vector<real_t> output_t;
+
+    ///
     /// \brief QCircuit Constructor
     ///
     QCircuit();
@@ -39,7 +44,7 @@ public:
     ///
     /// \brief execute Execute the gates of the circuit
     ///
-    void execute();
+    virtual output_t operator()()const;
 
 private:
 
@@ -47,6 +52,11 @@ private:
     /// \brief gates_. The gates of the circuit
     ///
     std::vector<std::shared_ptr<GateBase>> gates_;
+
+    ///
+    /// \brief ciruit_output_. The output of the circuit
+    ///
+    mutable output_t ciruit_output_;
 
 };
 

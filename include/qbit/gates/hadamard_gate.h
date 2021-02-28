@@ -27,7 +27,7 @@ template<typename OupT> class HadamardGate;
 /// \brief Forward declare of the measurement
 /// type possibly used by the gate
 ///
-struct QMeasurement;
+class QMeasurement;
 
 namespace hadamard_detail {
 
