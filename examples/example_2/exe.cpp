@@ -16,7 +16,11 @@ int main(){
     qbit::DynVec<qbit::real_t> state(2, 0.0);
     state[0] = 1.0;
     circuit.add_hadamard_gate(qbit::Qubit(state));
-    circuit.execute();
+    auto out = circuit();
+
+    for(auto item:out){
+        std::cout<<item<<std::endl;
+    }
 
     return 0;
 }
