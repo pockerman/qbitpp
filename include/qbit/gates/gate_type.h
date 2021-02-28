@@ -10,7 +10,7 @@ namespace qbit {
 enum class GateType{
 
     NONE=0, HADAMARD, HADAMADARD_WITH_MES,
-    IDENTITY, IDENTITY_WITH_MES
+    IDENTITY, IDENTITY_WITH_MES, MEASUREMENT
 
 };
 
