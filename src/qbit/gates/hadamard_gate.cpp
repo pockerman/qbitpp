@@ -48,7 +48,7 @@ HadamardGate<std::vector<Qubit>>::HadamardGate(const input_t& input)
 HadamardGate<std::vector<Qubit>>::output_t
 HadamardGate<std::vector<Qubit>>::operator()()const {
 
-    HadamardGate<std::vector<Qubit>>::output_t out;
+    HadamardGate<std::vector<Qubit>>::output_t out(1);
     auto mat = HadamardGate<std::vector<Qubit>>::as_matrix();
     DynVec<real_t> tmp = mat*this->input_.as_vector();
 
