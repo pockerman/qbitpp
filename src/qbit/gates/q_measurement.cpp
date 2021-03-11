@@ -4,7 +4,7 @@
 #include <cmath>
 
 namespace qbit{
-
+namespace gates{
 
 QMeasurement::QMeasurement(const input_t& input)
     :
@@ -31,4 +31,5 @@ QMeasurement::operator()()const{
     return out;
 }
 
+}
 }

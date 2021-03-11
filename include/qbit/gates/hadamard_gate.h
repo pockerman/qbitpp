@@ -8,8 +8,8 @@
 
 #include <array>
 
-namespace qbit
-{
+namespace qbit{
+namespace gates {
 
 ///
 /// \brief Froward declare but not implement
@@ -42,7 +42,7 @@ public:
     ///
     /// \brief input_t. The type of the input to the gate
     ///
-    typedef Qubit input_t;
+    typedef qbit::Qubit input_t;
 
     ///
     /// \brief input_size. The size of the input
@@ -176,5 +176,5 @@ private:
 };
 
 }
-
+}
 #endif // HADAMARD_GATE_H

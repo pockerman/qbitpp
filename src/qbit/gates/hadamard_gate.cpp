@@ -10,8 +10,8 @@
 #include <stdexcept>
 #endif
 
-namespace qbit
-{
+namespace qbit{
+namespace gates {
 
 namespace hadamard_detail{
 
@@ -65,7 +65,7 @@ HadamardGate<std::vector<Qubit>>::evaluate(const Qubit& input)const {
 
     auto mat = HadamardGate<std::vector<Qubit>>::as_matrix();
     DynVec<real_t> tmp = mat*input.as_vector();
-    return Qubit(tmp);
+    return qbit::Qubit(tmp);
 }
 
 
@@ -85,5 +85,5 @@ HadamardGate<QMeasurement>::operator()(const input_t& input)const {
 
 
 
-
+}
 } //qbit

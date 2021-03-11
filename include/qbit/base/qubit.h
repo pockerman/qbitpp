@@ -52,12 +52,28 @@ public:
     ///
     real_t get_probability(DynVec<uint_t> bits)const;
 
+    ///
+    /// \brief get_id. Returns the id of the Qubit
+    ///
+    uint_t get_id()const{return id_;}
+
+    ///
+    /// \brief set_id. Returns the id of the Qubit
+    ///
+    void set_id(uint_t id){id_ = id;}
+
 private:
 
     ///
     /// \brief state_. The state of the qubit
     ///
     DynVec<real_t> state_;
+
+    ///
+    /// \brief id_. The id of the qubit. Typically
+    /// this will be set by QCircuits
+    ///
+    uint_t id_;
 
     ///
     /// \brief normalize_. Normalize the qubit

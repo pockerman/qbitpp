@@ -6,6 +6,7 @@
 #include <vector>
 
 namespace qbit{
+namespace gates{
 
 ///
 /// \brief The QMeasurement struct. Models
@@ -55,6 +56,7 @@ private:
 
 
 };
+}
 
 }
 

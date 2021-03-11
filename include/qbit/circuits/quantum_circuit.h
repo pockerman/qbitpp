@@ -8,13 +8,20 @@
 #include <vector>
 #include <memory>
 
-namespace qbit
-{
+namespace qbit{
 
 ///
 /// \brief Forward declaration
 ///
 class Qubit;
+
+namespace gates {
+
+class OperationBase;
+
+}
+
+namespace circuits {
 
 ///
 /// \brief The QCircuit class. The QCircuit class
@@ -36,22 +43,55 @@ public:
     QCircuit();
 
     ///
+    /// \brief QCircuit. Build a circuit with nqubits
+    ///
+    QCircuit(uint_t nqubits);
+
+    ///
+    /// \brief ~QCircuit destructor
+    ///
+    virtual ~QCircuit();
+
+    ///
     /// \brief add_hadamard_gate Add a Hadamard gate acting
     /// on the qubit
     ///
     void add_hadamard_gate(const Qubit& qubit);
 
     ///
+    /// \brief add_operation. Add an operation
+    /// applied on some of the qubits of the circuit
+    ///
+    void add_operation(gates::OperationBase* operation_ptr);
+
+    ///
     /// \brief execute Execute the gates of the circuit
     ///
     virtual output_t operator()()const;
+
+    ///
+    /// \brief get_qubit. Returns a copy of the
+    /// i-th qubit
+    ///
+    Qubit get_qubit(uint_t i)const;
 
 private:
 
     ///
     /// \brief gates_. The gates of the circuit
     ///
-    std::vector<std::shared_ptr<GateBase>> gates_;
+    std::vector<std::shared_ptr<gates::GateBase>> gates_;
+
+    ///
+    /// \brief qubits_. The qubits used by the circuit
+    ///
+    std::vector<Qubit> qubits_;
+
+    ///
+    /// \brief operations_. The operations to apply on the
+    /// qubits of the circuit
+    ///
+    std::vector<std::shared_ptr<gates::OperationBase>> operations_;
 
     ///
     /// \brief ciruit_output_. The output of the circuit
@@ -60,6 +100,7 @@ private:
 
 };
 
+}
 }
 
 #endif // QUANTUM_CIRCUIT_H

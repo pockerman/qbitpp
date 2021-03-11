@@ -8,7 +8,8 @@ namespace qbit
 
 Qubit::Qubit(const DynVec<real_t>& state)
     :
-      state_(state)
+      state_(state),
+      id_(QbitConsts::invalid_size_type())
 {
     normalize_();
 }
@@ -20,7 +21,8 @@ Qubit::Qubit(uint_t size)
 
 Qubit&
 Qubit::operator=(const Qubit& other){
-    this->state_ = other.state_;
+    state_ = other.state_;
+    id_ = other.id_;
     return *this;
 }
 
@@ -51,8 +53,9 @@ Qubit::get_probability(DynVec<uint_t> bits)const{
 
 std::ostream&
 Qubit::print(std::ostream& out)const{
-    out << state_;
-    return out;;
+    out << id_    << std::endl;
+    out << state_ << std::endl;
+    return out;
 }
 
 DynVec<real_t>

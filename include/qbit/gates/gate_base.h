@@ -5,13 +5,15 @@
 
 #include <vector>
 
-namespace qbit
-{
+namespace qbit{
+
 
 ///
 /// Forward declaration
 ///
 class Qubit;
+
+namespace gates{
 
 ///
 /// \brief The GeteBase class. Base class for deriving
@@ -52,5 +54,5 @@ protected:
 };
 
 }
-
+}
 #endif // GATE_BASE_H

@@ -2,6 +2,7 @@
 #define GATE_TYPE_H
 
 namespace qbit {
+namespace gates {
 
 ///
 /// \brief The GateType enum. Useful enumeration of the
@@ -14,6 +15,7 @@ enum class GateType{
 
 };
 
+}
 }
 
 #endif // GATE_TYPE_H
