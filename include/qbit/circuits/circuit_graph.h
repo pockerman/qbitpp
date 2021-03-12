@@ -22,10 +22,10 @@ class OperationBase;
 namespace circuits {
 
 ///
-/// \brief The SerialCircuitGraph class. Models
+/// \brief The SerialGraph class. Models
 /// the operations to be executed by the QCircuit
 ///
-class SerialCircuitGraph
+class SerialGraph
 {
 public:
 
@@ -132,9 +132,9 @@ private:
 public:
 
     ///
-    /// \brief SerialCircuitGraph
+    /// \brief SerialGraph
     ///
-    explicit SerialCircuitGraph(uint_t nvs=0);
+    explicit SerialGraph(uint_t nvs=0);
 
     ///
     /// \brief set_vertex_data. Set the vertex data for the vertex with the given id
