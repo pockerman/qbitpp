@@ -7,7 +7,7 @@
 namespace qbit {
 namespace circuits {
 
-class SerialCircuit: public QCircuit
+class SerialQCircuit: public QCircuit
 {
 public:
 
@@ -15,7 +15,7 @@ public:
     /// \brief graph_t The type of the graph used to
     /// represent the operations of the circuit
     ///
-    typedef SerialCircuitGraph graph_t;
+    typedef SerialGraph graph_t;
 
     ///
     /// \brief output_t. The type of the output of the circuit
@@ -25,12 +25,12 @@ public:
     ///
     /// \brief QCircuit Constructor
     ///
-    SerialCircuit();
+    SerialQCircuit();
 
     ///
     /// \brief QCircuit. Build a circuit with nqubits
     ///
-    SerialCircuit(uint_t nqubits);
+    SerialQCircuit(uint_t nqubits);
 
     ///
     /// \brief add_operation. Add an operation
