@@ -11,7 +11,7 @@
 int main(){
 
 
-    qbit::QCircuit circuit;
+    qbit::circuits::QCircuit circuit;
 
     qbit::DynVec<qbit::real_t> state(2, 0.0);
     state[0] = 1.0;

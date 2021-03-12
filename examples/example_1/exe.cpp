@@ -10,7 +10,7 @@ namespace  {
 
     using qbit::uint_t;
     using qbit::real_t;
-    using qbit::HGate;
+    using qbit::gates::HGate;
     using qbit::Qubit;
     using qbit::DynVec;
 
