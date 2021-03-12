@@ -1,6 +1,8 @@
 #include "qbit/circuits/quantum_circuit.h"
 #include "qbit/gates/hadamard_gate.h"
 #include "qbit/gates/q_measurement.h"
+#include "qbit/gates/operation_base.h"
+
 
 namespace qbit{
 namespace circuits {
@@ -14,10 +16,12 @@ QCircuit::QCircuit()
 QCircuit::~QCircuit()
 {}
 
+
 void
 QCircuit::add_hadamard_gate(const Qubit& qubit){
     gates_.push_back(std::make_shared<gates::HGate>(qubit));
 }
+
 
 Qubit
 QCircuit::get_qubit(uint_t i)const{
@@ -28,6 +32,7 @@ void
 QCircuit::add_operation(gates::OperationBase* operation_ptr){
     operations_.push_back(std::shared_ptr<gates::OperationBase>(operation_ptr));
 }
+
 
 QCircuit::output_t
 QCircuit::operator()()const{

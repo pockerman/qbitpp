@@ -4,6 +4,7 @@
 #include "qbit/base/types.h"
 #include "qbit/gates/gate_base.h"
 #include "qbit/gates/gate_type.h"
+#include "qbit/circuits/circuit_graph.h"
 
 #include <vector>
 #include <memory>
@@ -22,6 +23,11 @@ class OperationBase;
 }
 
 namespace circuits {
+
+///
+/// Forward declarations
+///
+class SerialCircuitGraph;
 
 ///
 /// \brief The QCircuit class. The QCircuit class
@@ -56,13 +62,13 @@ public:
     /// \brief add_hadamard_gate Add a Hadamard gate acting
     /// on the qubit
     ///
-    void add_hadamard_gate(const Qubit& qubit);
+    virtual void add_hadamard_gate(const Qubit& qubit);
 
     ///
     /// \brief add_operation. Add an operation
     /// applied on some of the qubits of the circuit
     ///
-    void add_operation(gates::OperationBase* operation_ptr);
+    virtual void add_operation(gates::OperationBase* operation_ptr);
 
     ///
     /// \brief execute Execute the gates of the circuit
@@ -75,7 +81,7 @@ public:
     ///
     Qubit get_qubit(uint_t i)const;
 
-private:
+protected:
 
     ///
     /// \brief gates_. The gates of the circuit
