@@ -1,5 +1,5 @@
-#ifndef SERIAL_CIRCUIT_H
-#define SERIAL_CIRCUIT_H
+#ifndef SERIAL_QUANTUM_CIRCUIT_H
+#define SERIAL_QUANTUM_CIRCUIT_H
 
 #include "qbit/circuits/quantum_circuit.h"
 #include "qbit/circuits/circuit_graph.h"

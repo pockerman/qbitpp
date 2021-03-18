@@ -1,16 +1,16 @@
-#include "qbit/circuits/serial_circuit.h"
+#include "qbit/circuits/serial_quantum_circuit.h"
 
 namespace qbit{
 namespace circuits{
 
-SerialCircuit::SerialCircuit()
+SerialQCircuit::SerialQCircuit()
     :
       QCircuit(),
       circuit_graph_()
 {}
 
 
-SerialCircuit::SerialCircuit(uint_t nqubits)
+SerialQCircuit::SerialQCircuit(uint_t nqubits)
     :
       QCircuit(nqubits),
       circuit_graph_()
@@ -18,7 +18,7 @@ SerialCircuit::SerialCircuit(uint_t nqubits)
 
 
 void
-SerialCircuit::add_operation(gates::OperationBase* operation_ptr){
+SerialQCircuit::add_operation(gates::OperationBase* operation_ptr){
 
 }
 

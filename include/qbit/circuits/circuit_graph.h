@@ -142,15 +142,39 @@ public:
     vertex_t& set_vertex_data(uint_t vid, const vertex_data_t& data);
 
     ///
+    /// \brief Add an edge formed by the two given vertices
+    ///
+    void add_edge(uint_t v1, uint_t v2);
+
+    ///
     /// \brief Returns the number of vertices
     ///
     uint_t n_vertices()const{return g_.num_vertices();}
+
+    ///
+    /// \brief Returns the maximum vertex index
+    ///
+    uint_t max_vertex_index()const noexcept{return g_.max_vertex_index();}
+
+    ///
+    /// \brief Returns the number of edges
+    ///
+    uint_t n_edges()const{return g_.num_edges();}
+
+    ///
+    /// \brief Returns the maximum edge index
+    ///
+    uint_t max_edge_index() const noexcept{return g_.max_edge_index();}
 
     ///
     /// \brief Clear the graph
     ///
     void clear(){g_.clear();}
 
+    ///
+    /// \brief empty. Return true if no vertices in the graph
+    ///
+    bool empty()const{return n_vertices() == 0;}
 
 private:
 

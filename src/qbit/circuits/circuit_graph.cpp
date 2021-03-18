@@ -81,6 +81,32 @@ SerialGraph::SerialGraphNode::operator=(const SerialGraph::SerialGraphNode& o){
     return *this;
 }
 
+void
+SerialGraph::add_edge(uint_t v1, uint_t v2){
+
+    //TODO what happens when v1 and v2 are not valid vertex indices?
+    //at the moment we throw an assertion
+    if(v1>=n_vertices() || v2 >=n_vertices())
+            throw std::logic_error("Invalid vertex index v1/v2: "+
+                                    std::to_string(v1)+
+                                    "/"+
+                                    std::to_string(v2)+
+                                    " not in [0,"+
+                                    std::to_string(n_vertices())+
+                                    ")");
+
+    edge_descriptor_t et;
+    bool condition;
+
+    // get the vertices that correspond to the indices
+    vertex_descriptor_t a = boost::vertex(v1, g_);
+    vertex_descriptor_t b = boost::vertex(v2, g_);
+    uint_t idx = n_edges();
+
+    // create an edge
+    boost::tie(et, condition) = boost::add_edge(a,b,g_);
+
+}
 
 
 

@@ -13,6 +13,11 @@ QCircuit::QCircuit()
       gates_()
 {}
 
+QCircuit::QCircuit(uint_t nqubits)
+    :
+      qubits_(nqubits)
+{}
+
 QCircuit::~QCircuit()
 {}
 
