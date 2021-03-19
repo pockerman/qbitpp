@@ -31,14 +31,19 @@ public:
     Qubit(const DynVec<real_t>& state);
 
     ///
-    ///\brief Returns the qubit representation as vector
+    /// \brief Copy constructor
     ///
-    DynVec<real_t> as_vector()const;
+    Qubit(const Qubit& other);
 
     ///
     /// \brief operator = Copy assignment operator
     ///
     Qubit& operator=(const Qubit& other);
+
+    ///
+    ///\brief Returns the qubit representation as vector
+    ///
+    DynVec<real_t> as_vector()const;
 
     ///
     /// \brief print Helper functions to print the state of
@@ -52,12 +57,39 @@ public:
     ///
     real_t get_probability(DynVec<uint_t> bits)const;
 
+    ///
+    /// \brief get_id. Returns the id of the Qubit
+    ///
+    uint_t get_id()const{return id_;}
+
+    ///
+    /// \brief set_id. Returns the id of the Qubit
+    ///
+    void set_id(uint_t id){id_ = id;}
+
+    ///
+    /// \brief size Returns the size of the state vector of the qubit
+    ///
+    uint_t size()const{return state_.size();}
+
+    ///
+    /// \brief get_amplitudes_sqr. Returns the amplitudes of the
+    /// state vector squared
+    ///
+    DynVec<real_t> get_amplitudes_sqr()const;
+
 private:
 
     ///
     /// \brief state_. The state of the qubit
     ///
     DynVec<real_t> state_;
+
+    ///
+    /// \brief id_. The id of the qubit. Typically
+    /// this will be set by QCircuits
+    ///
+    uint_t id_;
 
     ///
     /// \brief normalize_. Normalize the qubit
@@ -73,6 +105,8 @@ inline
 std::ostream& operator<<(std::ostream& out, const Qubit& q){
     return q.print(out);
 }
+
+
 
 }
 
