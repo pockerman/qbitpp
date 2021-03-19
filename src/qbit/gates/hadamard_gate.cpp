@@ -10,6 +10,8 @@
 #include <stdexcept>
 #endif
 
+#include <iostream>
+
 namespace qbit{
 namespace gates {
 
